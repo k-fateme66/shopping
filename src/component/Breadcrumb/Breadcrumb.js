@@ -4,11 +4,9 @@ import { NavLink, useLocation } from "react-router-dom";
 const Breadcrumb = () => {
     const location = useLocation();
     let currentLink = '';
-    console.log(location)
     const crumbs = location.pathname.split('/')
 
         .map((crumb) => {
-            console.log(crumb)
             currentLink += `/${crumb}`
             if (crumb === '' && location.pathname !== '/') {
                 return (
