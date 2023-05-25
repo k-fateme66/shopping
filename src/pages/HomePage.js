@@ -34,16 +34,16 @@ function HomePage() {
                 <h1 className='md:text-4xl text-2xl font-semibold'>SOBER</h1>
                 <Breadcrumb />
             </div>
-            <div className='relative w-full h-full'>
+            <div className='relative container mx-auto px-4'>
                 <Tabs className="flex flex-col justify-center items-center pt-10" selectedTabClassName="active" selectedIndex={tabIndex} onSelect={(index) => handleChangeTab(index)}>
                     <TabList className="flex justify-center items-center w-full mb-5">
-                        <Tab className="outline-none text-center cursor-pointer line-hover tab-nav flex items-center justify-center py-3 relative px-5 mx-2">
+                        <Tab className="outline-none text-center cursor-pointer line-hover tab-nav flex items-center justify-center py-3 relative md:px-5 mx-2">
                             <h5 className='text-base  font-semibold'> All</h5>
                         </Tab>
-                        <Tab className="outline-none text-center cursor-pointer line-hover tab-nav flex items-center justify-center py-3 relative px-5 mx-2">
+                        <Tab className="outline-none text-center cursor-pointer line-hover tab-nav flex items-center justify-center py-3 relative md:px-5 mx-2">
                             <h5 className='text-base  font-semibold'> New Products</h5>
                         </Tab>
-                        <Tab className="outline-none text-center cursor-pointer line-hover tab-nav flex items-center justify-center py-3 relative px-5 mx-2">
+                        <Tab className="outline-none text-center cursor-pointer line-hover tab-nav flex items-center justify-center py-3 relative md:px-5 mx-2">
                             <h5 className='text-base  font-semibold'>Sales Products</h5>
                         </Tab>
                     </TabList>
