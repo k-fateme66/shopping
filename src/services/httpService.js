@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://nodejs-post-app.herokuapp.com';
+axios.defaults.baseURL = 'https://test-api-react.vercel.app/';
 
 const http = {
     get: axios.get,
