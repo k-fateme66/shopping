@@ -34,7 +34,20 @@ function HomePage() {
                 <h1 className='md:text-4xl text-2xl font-semibold'>SOBER</h1>
                 <Breadcrumb />
             </div>
-            <div className='relative container mx-auto px-4'>
+            {
+                products.loading ?
+                    <div className='px-10 mx-auto grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4'>
+                        <Skeleton />
+                        <Skeleton />
+                        <Skeleton />
+                        <Skeleton />
+                        <Skeleton />
+                    </div> :
+                    !products.loading && products.error ?
+                        <ErrorTemplate error={products.error} /> :
+                        products.products && products.products.length && <ProductList products={products.products} />
+            }
+            {/* <div className='relative container mx-auto px-4'>
                 <Tabs className="flex flex-col justify-center items-center pt-10" selectedTabClassName="active" selectedIndex={tabIndex} onSelect={(index) => handleChangeTab(index)}>
                     <TabList className="flex justify-center items-center w-full mb-5">
                         <Tab className="outline-none text-center cursor-pointer line-hover tab-nav flex items-center justify-center py-3 relative md:px-5 mx-2">
@@ -73,7 +86,7 @@ function HomePage() {
                         }
                     </TabPanel>
                 </Tabs>
-            </div>
+            </div> */}
         </>
     )
 }

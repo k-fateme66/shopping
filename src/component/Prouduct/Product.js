@@ -6,14 +6,14 @@ import { checkInCart } from "../../utils/CheckInCart";
 import { NavLink } from "react-router-dom";
 const Product = ({ product, addCart, addWish }) => {
     const { cart } = useCart();
-    const { name, price, image, discount, _id, offPrice } = product;
-    const checkCart = checkInCart(cart, _id);
+    const { name, price, image, discount, id, offPrice } = product;
+    const checkCart = checkInCart(cart, id);
     const { wish } = useWish();
-    const checkWishList = checkInCart(wish, _id);
+    const checkWishList = checkInCart(wish, id);
 
 
     return (
-        <NavLink to={`/product/${product.name}?id=${product._id}`} className="text-center mb-11 group ">
+        <NavLink to={`/product/${product.name}?id=${product.id}`} className="text-center mb-11 group ">
             <div className="relative overflow-hidden mb-5 hover:">
                 <img src={image} className="w-full object-cover	h-64 object-center" />
                 <img src={image} className="group-hover:opacity-100 -scale-x-100 object-cover h-64 object-center w-full absolute top-0  left-0 opacity-0 transition-opacity duration-500 ease-linear" />

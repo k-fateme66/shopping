@@ -1,8 +1,8 @@
 const addProductToCart = (state, payload) => {
 
-    console.log(state, payload)
+    console.log(state, payload.id)
     const updatedCart = [...state.cart];//1.copy from cart 
-    const updatedItemIndex = updatedCart.findIndex((item) => item._id == payload._id);//2. find item in cart existence
+    const updatedItemIndex = updatedCart.findIndex((item) => item.id == payload.id);//2. find item in cart existence
 
     if (updatedItemIndex >= 0) {
         // existence
@@ -21,10 +21,10 @@ const addProductToCart = (state, payload) => {
 }
 const removeProductToCart = (state, payload) => {
     const updatedCart = [...state.cart];//1.copy from cart 
-    const updatedItemIndex = updatedCart.findIndex((item) => item._id == payload._id);
+    const updatedItemIndex = updatedCart.findIndex((item) => item.id == payload.id);
     const updatedItem = { ...updatedCart[updatedItemIndex] };
     if (updatedItem.quantity === 1) {
-        const filterCart = updatedCart.filter((item) => item._id !== payload._id)
+        const filterCart = updatedCart.filter((item) => item.id !== payload.id)
         return {
             ...state,
             cart: filterCart,
@@ -42,9 +42,9 @@ const removeProductToCart = (state, payload) => {
 }
 const deleteProductToCart = (state, payload) => {
     const updatedCart = [...state.cart];
-    const updatedItemIndex = updatedCart.findIndex((item) => item._id == payload._id);
+    const updatedItemIndex = updatedCart.findIndex((item) => item.id == payload.id);
     if (updatedItemIndex => 0) {
-        const filterCart = updatedCart.filter((item) => item._id !== payload._id)
+        const filterCart = updatedCart.filter((item) => item.id !== payload.id)
         console.log(state.total, payload.offPrice, payload.quantity)
         return {
             ...state,

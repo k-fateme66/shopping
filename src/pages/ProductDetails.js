@@ -38,7 +38,7 @@ const ProductDetails = () => {
     }
 
     const ProductDetailsTemplate = (_product) => {
-        const productInCart = checkInCart(cart, _product._id);
+        const productInCart = checkInCart(cart, _product.id);
         const product = cart.length && productInCart ? productInCart : _product;
         return (
             <>

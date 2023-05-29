@@ -22,7 +22,7 @@ const ProductList = ({ products }) => {
                 {
                     products.map((product) => {
                         return <Product
-                            key={product._id}
+                            key={product.id}
                             product={product}
                             addCart={(e) => handleAddCart(e, product)}
                             addWish={(e) => handleAddWish(e, product)} />
