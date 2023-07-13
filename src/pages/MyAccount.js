@@ -36,7 +36,7 @@ const MyAccount = () => {
     const handleChangeTab = (index) => {
         setTabIndex(index);
         navigate('#' + getObjectKeyByValue(tabs, index));
-        if (index == 4) {
+        if (index === 4) {
             setAuth(false);
             navigate('/')
         }

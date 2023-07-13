@@ -1,7 +1,6 @@
 import React from 'react'
 import { useProducts } from "../Context/ProductsProvider";
 import ProductList from "../component/ProductList/ProuductList";
-import Breadcrumb from '../component/Breadcrumb/Breadcrumb';
 import Loading from '../commen/Loading';
 import ErrorTemplate from '../commen/ErrorTemplate';
 import HeroSection from '../component/HeroSection/HeroSection';
