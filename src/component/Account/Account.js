@@ -28,7 +28,7 @@ const Account = ({ close }) => {
                             className="inline-block px-4 py-2"
                         >
                             <div className={`${openTab === 1 ? "active" : ""} py-2 line-hover tab-nav flex items-center justify-center w-full mb-8 relative`}>
-                                <h4 className="md:text-xl text-lg font-semibold ">Login</h4>
+                                <h4 className="md:text-xl text-lg font-semibold ">{!showForm ? 'Login' : 'Forgot Password'}</h4>
                             </div>
                         </a>
                     </li>
@@ -44,7 +44,7 @@ const Account = ({ close }) => {
                         </a>
                     </li>
                 </ul>
-                <div className="md:w-4/5 relative z-0 w-2/3 mx-auto">
+                <div className="md:w-4/5 relative z-0 w-full mx-auto">
                     <div className={`${openTab === 1 ? "active" : ""} tab-panel`}>
                         {!showForm ? <Login changeForm={(e) => handleChangeForm(e)} /> : <ForgotPassword changeForm={(e) => handleChangeForm(e)} />}
                     </div>

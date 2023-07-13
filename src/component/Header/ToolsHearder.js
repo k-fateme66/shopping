@@ -9,7 +9,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useAuth } from "../../Context/AuthProvider";
 const customStylesModal = {
     overlay: {
-        zIndex: 1
+        zIndex: 2
     },
     content: {
         top: '0',
@@ -75,9 +75,9 @@ const ToolsHeader = () => {
                                 onRequestClose={closeModalAccount}
                                 style={customStylesModal}
                                 contentLabel="Example Modal">
-                                <div className="p-10 relative">
+                                <div className="md:p-10 py-5 relative">
                                     <h4 className="text-[32px]">Account</h4>
-                                    <button className="top-10 right-9 absolute z-10" onClick={closeModalAccount}>
+                                    <button className="md:top-10 top-6 md:right-9 right-0 absolute z-10" onClick={closeModalAccount}>
                                         <BsX className="w-10 h-10" />
                                     </button>
                                 </div>

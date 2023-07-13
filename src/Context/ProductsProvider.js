@@ -22,7 +22,6 @@ const ProductsProvider = ({ children }) => {
             const { data } = await getProducts();
             setProducts({ ...products, loading: false, error: null, products: data })
         } catch (error) {
-            console.log(error.message)
             setProducts({ ...products, loading: false, error: error.message, products: [] })
         }
     }

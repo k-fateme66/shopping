@@ -4,6 +4,7 @@ function Navigtion({ styleNav, styleUl }) {
     const navLinks = [
         { path: '/', name: 'HomePage' },
         { path: 'shop', name: 'Shop' },
+        { path: 'blog', name: 'Blog' },
         { path: 'contactus', name: 'Contact Us' }
     ]
 

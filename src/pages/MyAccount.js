@@ -50,7 +50,7 @@ const MyAccount = () => {
     }, [location]);
 
     return (
-        <div className="mx-auto py-40" >
+        <div className="mx-auto md:py-40" >
             <Tabs className="w-full " selectedTabClassName="active" selectedIndex={tabIndex} onSelect={(index) => handleChangeTab(index)}>
                 <TabList className='flex flex-wrap mb-16 bg-gray-200 lg:px-72 justify-center'>
                     {!userDate && <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4">
@@ -76,7 +76,7 @@ const MyAccount = () => {
                     </Tab>}
                 </TabList>
 
-                {!userDate && <TabPanel >
+                {!userDate && <TabPanel className="w-full md:w-4/5 md:px-0 px-7 relative mx-auto">
                     <Account />
                 </TabPanel>}
                 {userDate && <TabPanel className="w-full md:w-4/5 md:px-0 px-8 relative mx-auto">

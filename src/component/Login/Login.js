@@ -59,7 +59,7 @@ const Login = ({ changeForm }) => {
                 <Input type='password' lable='Password' name='password' formik={formik} />
                 <button type='submit' className="w-full bg-slate-900 text-white md:py-6 py-4 text-center">LOGIN</button>
             </form>
-            <div className="text-center mt-10">
+            <div className="text-center mt-10 mb-5">
                 <button type="button" onClick={changeForm} className="text-slate-900 font-semibold border-b-2 border-slate-900 py-2">
                     Lost your password?
                 </button>

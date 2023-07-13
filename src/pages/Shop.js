@@ -4,15 +4,13 @@ import ProductList from "../component/ProductList/ProuductList";
 import Breadcrumb from '../component/Breadcrumb/Breadcrumb';
 import Loading from '../commen/Loading';
 import ErrorTemplate from '../commen/ErrorTemplate';
+import HeroSection from '../component/HeroSection/HeroSection';
 
 const Shop = () => {
     const { products } = useProducts();
     return (
         <>
-            <div className="md:py-56 py-24 bg-[url('/src/assets/img/home.jpg')] bg-cover bg-center bg-no-repeat text-center bg-slate-50">
-                <h1 className='md:text-4xl text-2xl font-semibold'>SOBER</h1>
-                <Breadcrumb />
-            </div>
+            <HeroSection title='Shop' />
             <div className='relative w-full h-full'>
                 {products.loading ?
                     <Loading /> :

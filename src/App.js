@@ -10,6 +10,7 @@ import WishProvider from './Context/WishProvider';
 import AuthProvider from './Context/AuthProvider';
 import { fixHeader } from './assets/js/script';
 import ProductsProvider from './Context/ProductsProvider';
+import PostsProvider from './Context/PostsProvider';
 
 function App() {
   fixHeader();
@@ -19,16 +20,18 @@ function App() {
         <ProductsProvider>
           <WishProvider>
             <CartProvider>
-              <ToastContainer />
-              <Layout>
+              <PostsProvider>
+                <ToastContainer />
                 <Routes>
-                  {
-                    routes.map((rout) => {
-                      return <Route key={rout.path} path={rout.path} element={rout.element} />
-                    })
-                  }
+                  <Route path='/' element={<Layout />}>
+                    {
+                      routes.map((rout) => {
+                        return <Route key={rout.path} path={rout.path} element={rout.element} />
+                      })
+                    }
+                  </Route>
                 </Routes>
-              </Layout>
+              </PostsProvider>
             </CartProvider>
           </WishProvider>
         </ProductsProvider>

@@ -34,8 +34,8 @@ const Footer = () => {
                     </button>
                 </form>
             </div>
-            <div className="md:mx-10 mx-4  border-t border-gray-100 py-5 flex md:flex-row flex-col justify-between">
-                <div className="w-full md:w-1/2 flex md:justify-start justify-center items-center mb-3 md:mb-0">
+            <div className="md:mx-10  border-t border-gray-100 py-5 flex md:flex-row flex-col justify-between">
+                <div className="w-full md:w-1/2 flex md:justify-start justify-center items-center mb-5 md:mb-0">
                     <p className="text-sm font-semibold text-slate-900 mr-4">@2022 SOBER</p>
                     <ul className="flex justify-between items-center leading-none ">
                         <li>

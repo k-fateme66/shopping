@@ -1,3 +1,4 @@
+import Blog from "./pages/Blog";
 import ContactUs from "./pages/ContactUs";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
@@ -11,8 +12,9 @@ const routes = [
     { path: '/contactus', element: <ContactUs /> },
     { path: '/product/*', element: <ProductDetails /> },
     { path: '/product', element: <ErrorPage /> },
+    { path: '/blog', element: <Blog /> },
+    { path: '/blog/category', element: <ErrorPage /> },
+    { path: '/blog/*', element: <Blog /> },
     { path: '/*', element: <ErrorPage /> },
 ]
-
-
 export default routes;

@@ -6,7 +6,7 @@ import Navigtion from '../Navigtion/Navigtion';
 function Header() {
     return (
         <>
-            <header className='py-9 border-b border-gray-100 top-0 fixed w-full z-[1] bg-transparent lg:transition-all lg:duration-500 lg:ease-in-out lg:hover:bg-white lg:hover:drop-shadow-md'>
+            <header className='py-9 lg:bg-white border-b border-gray-100 top-0 fixed w-full z-[1] bg-transparent lg:transition-all lg:duration-500 lg:ease-in-out  lg:hover:drop-shadow-md'>
                 <div className='px-10 mx-auto flex items-center justify-between'>
                     <div className='flex-1'>
                         <Navigtion styleNav={'lg:block hidden'} styleUl={'flex gap-x-7'} />

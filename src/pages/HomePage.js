@@ -3,8 +3,9 @@ import ProductList from '../component/ProductList/ProuductList';
 import { useProducts } from '../Context/ProductsProvider';
 import Breadcrumb from '../component/Breadcrumb/Breadcrumb';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-import Skeleton from '../component/Skeleton/Skeleton';
 import ErrorTemplate from '../commen/ErrorTemplate';
+import Loading from '../commen/Loading';
+import HeroSection from '../component/HeroSection/HeroSection';
 
 function HomePage() {
     const [tabIndex, setTabIndex] = useState(0);
@@ -30,24 +31,8 @@ function HomePage() {
     }, [tabIndex, productsTab]);
     return (
         <>
-            <div className="md:py-56 py-24 bg-[url('/src/assets/img/home.jpg')] bg-cover bg-center bg-no-repeat text-center bg-slate-50">
-                <h1 className='md:text-4xl text-2xl font-semibold'>SOBER</h1>
-                <Breadcrumb />
-            </div>
-            {
-                products.loading ?
-                    <div className='px-10 mx-auto grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4'>
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                    </div> :
-                    !products.loading && products.error ?
-                        <ErrorTemplate error={products.error} /> :
-                        products.products && products.products.length && <ProductList products={products.products} />
-            }
-            {/* <div className='relative container mx-auto px-4'>
+            <HeroSection title='SOBER' />
+            {<div className='relative container mx-auto px-4'>
                 <Tabs className="flex flex-col justify-center items-center pt-10" selectedTabClassName="active" selectedIndex={tabIndex} onSelect={(index) => handleChangeTab(index)}>
                     <TabList className="flex justify-center items-center w-full mb-5">
                         <Tab className="outline-none text-center cursor-pointer line-hover tab-nav flex items-center justify-center py-3 relative md:px-5 mx-2">
@@ -63,13 +48,7 @@ function HomePage() {
                     <TabPanel>
                         {
                             products.loading ?
-                                <div className='px-10 mx-auto grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4'>
-                                    <Skeleton />
-                                    <Skeleton />
-                                    <Skeleton />
-                                    <Skeleton />
-                                    <Skeleton />
-                                </div> :
+                                <Loading /> :
                                 !products.loading && products.error ?
                                     <ErrorTemplate error={products.error} /> :
                                     products.products && products.products.length && <ProductList products={products.products} />
@@ -86,7 +65,7 @@ function HomePage() {
                         }
                     </TabPanel>
                 </Tabs>
-            </div> */}
+            </div>}
         </>
     )
 }

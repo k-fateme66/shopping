@@ -28,8 +28,8 @@ const WishList = () => {
         <>
             {
                 wish.map((item) => (
-                    <div className="flex justify-between border-t border-slate-200 py-5" key={item._id}>
-                        <Link to={`/product/${item.name}?id=${item._id}`} className="flex items-center md:basis-1/3">
+                    <div className="flex justify-between border-t border-slate-200 py-5" key={item.id}>
+                        <Link to={`/product/${item.name}?id=${item.id}`} className="flex items-center md:basis-1/3">
                             <button onClick={(e) => deleteProductHandler(e, item)}>
                                 <BsX className="w-5 h-5 text-gray-400" />
                             </button>

@@ -65,6 +65,12 @@
   .line-hover:hover:after,
   .line-hover.active:after {
     width: theme("width.full");
+    right: 0;
+  }
+
+  .line-hover-white:after {
+    background-color: theme("colors.white") !important;
+    height: 3px;
   }
 
   nav  .line-hover:after {
@@ -165,6 +171,10 @@
 
    .breadcumbs div:last-child{
     color: #000;
+   }
+
+   .breadcumbs.hero-breadcumbs a,.breadcumbs.hero-breadcumbs  div:after{
+    color: #fff;
    }
    /* bredcumbs */
 }

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { a, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Breadcrumbs from '../component/Breadcrumb/Breadcrumb'
 import { BsHeartFill, BsArrowRight, BsArrowLeft, BsSlash, BsCurrencyDollar, BsHeart, BsTrash, BsDash, BsPlus, BsCart2, BsInstagram, BsWhatsapp, BsTelegram, BsFacebook, BsTwitter } from "react-icons/bs";
 import { useProducts } from "../Context/ProductsProvider";
@@ -8,35 +8,35 @@ import { checkInCart } from "../utils/CheckInCart";
 import ErrorTemplate from "../commen/ErrorTemplate";
 import Loading from "../commen/Loading";
 import { useWish, useWishActions } from "../Context/WishProvider";
+import SwiperSliderProducts from "../component/SwiperSliderProducts/SwiperSliderProducts";
+import ProgressiveImg from "../commen/ProgressiveImg";
+
 
 const ProductDetails = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const _id = searchParams.get('id')
-    const { product, setPath } = useProducts();
+    const { product, setPath, products } = useProducts();
     const { cart } = useCart();
     const { wish } = useWish();
     const cartDispatch = useCartActions();
     const dispatchWish = useWishActions();
     const checkWishList = checkInCart(wish, _id);
+    console.log(_id)
     useEffect(() => {
         setPath(_id);
-    }, [])
-
+    }, [_id])
     const addCartHandler = (e, item) => {
         e.preventDefault();
         cartDispatch({ type: 'ADD_TO_CART', payLoad: item })
     }
-
     const removeCartHandler = (e, item) => {
         e.preventDefault();
         cartDispatch({ type: 'REMOVE_PRODUCT', payLoad: item })
     }
-
     const AddWishHandler = (e, item) => {
         e.preventDefault();
         dispatchWish({ type: 'TOGGLE_TO_WISH', payLoad: item })
     }
-
     const ProductDetailsTemplate = (_product) => {
         const productInCart = checkInCart(cart, _product.id);
         const product = cart.length && productInCart ? productInCart : _product;
@@ -53,20 +53,20 @@ const ProductDetails = () => {
                         </a>
                     </div>
                 </div>
-                <div className='flex md:flex-row flex-col item-start justify-between'>
+                <div className='flex md:flex-row flex-col item-start justify-between mb-5'>
                     <div className='md:w-1/2 md:order-2 order-1 md:px-7 py-6' >
                         <h1 className='text-center text-3xl font-bold mb-8'>{product.name}</h1>
-                        <div className='flex justify-center items-end mb-10'>
+                        <div className='flex justify-center items-end mb-8'>
                             {
                                 product.description && product.description.length && product.description.map((item, index, { length }) =>
-                                    <div className='flex justify-start items-center' key={item._id}>
+                                    <div className='flex justify-start items-center' key={index}>
                                         <span className='text-sm font-semibold text-gray-500'>{item.support}</span>
                                         {(index !== length - 1) ? <BsSlash className='w-3 h-3 text-gray-500' /> : ''}
                                     </div>
                                 )
                             }
                         </div>
-                        <div className='flex justify-center items-end mb-10'>
+                        <div className='flex justify-center items-end mb-8'>
                             <div className="flex items-center justify-center">
                                 <BsCurrencyDollar className='w-6 h-6' />
                                 <h3 className="text-2xl -m-1 leading-6">{product.offPrice !== '' ? product.offPrice : product.price}</h3>
@@ -78,7 +78,7 @@ const ProductDetails = () => {
                                 </div>
                             }
                         </div>
-                        <div className="flex items-center justify-center mb-10">
+                        <div className="flex items-center justify-center mb-8">
                             {product.quantity ?
                                 <div className="flex items-center justify-between border border-slate-300 hover:border-slate-900 transition-all ease-linear duration-500 py-2 px-2 mx-3">
                                     <button onClick={(e) => removeCartHandler(e, product)}>
@@ -108,36 +108,35 @@ const ProductDetails = () => {
                         <div className="flex justify-center items-center border-t border-b py-10 border-b-gray-300 border-t-gray-300">
                             <ul className="flex items-center leading-none">
                                 <li>
-                                    <a href={`https://www.twitter.com/intent/tweet?url=${window.location.href}`} className="block text-sm mx-4 text-slate-500 hover:text-slate-900 ">
-                                        <BsTwitter className="w-4 h-4" />
+                                    <a target="_blank" href={`https://www.twitter.com/intent/tweet?url=${window.location.href}`} className="block text-sm mx-4 text-slate-500 hover:text-slate-900 ">
+                                        <BsTwitter className="w-5 h-5" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href={`https://wa.me/?text=${window.location.href}`} className="block text-sm mx-4 text-slate-500 hover:text-slate-900 ">
-                                        <BsWhatsapp className="w-4 h-4" />
+                                    <a target="_blank" href={`https://wa.me/?text=${window.location.href}`} className="block text-sm mx-4 text-slate-500 hover:text-slate-900 ">
+                                        <BsWhatsapp className="w-5 h-5" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href={`https://t.me/share/url?url=${window.location.href}`} className="block text-sm mx-4 text-slate-500 hover:text-slate-900 ">
-                                        <BsTelegram className="w-4 h-4" />
+                                    <a target="_blank" href={`https://t.me/share/url?url=${window.location.href}`} className="block text-sm mx-4 text-slate-500 hover:text-slate-900 ">
+                                        <BsTelegram className="w-5 h-5" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href={`http://www.facebook.com/share.php?u=${window.location.href}`} className="block text-sm mx-4 text-slate-500 hover:text-slate-900 ">
-                                        <BsFacebook className="w-4 h-4" />
+                                    <a target="_blank" href={`http://www.facebook.com/share.php?u=${window.location.href}`} className="block text-sm mx-4 text-slate-500 hover:text-slate-900 ">
+                                        <BsFacebook className="w-5 h-5" />
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div className='md:w-1/2 md:px-7 py-6'>
-                        <img className="w-full" src={product.image} />
+                        <ProgressiveImg src={product.image} alt={product.name} className='object-cover w-full h-96' />
                     </div>
                 </div>
             </>
         )
     }
-
     if (product.loading) return <Loading />
     if (!product.loading && product.error) return <ErrorTemplate error={product.error} />
     return (
@@ -145,8 +144,13 @@ const ProductDetails = () => {
             {
                 product.data && ProductDetailsTemplate(product.data)
             }
+            <div className="py-8 border-t border-gray-100">
+                <h3 className="text-xl text-center mb-8">Related products</h3>
+                <SwiperSliderProducts products={products} />
+            </div>
         </div>
     );
 }
+
 
 export default ProductDetails;
