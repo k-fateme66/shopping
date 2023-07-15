@@ -24,17 +24,20 @@ const Blog = () => {
         const featuredPost = posts[0];
         return (
             <>
-                <div className='w-100 overflow-hidden text-center border-b border-slate-200 pb-8'>
+                <div className='w-100 overflow-hidden md:text-center border-b border-slate-200 pb-8'>
                     <a href={`blog/${featuredPost.title.split(' ').join('-')}?id=${featuredPost.id}`} className='block mb-6'>
                         <ProgressiveImg src={featuredPost.image} placeholderSrc={placeholderSrc} alt={featuredPost.title} className='w-full' />
                     </a>
-                    <div className='flex justify-center items-center mb-3'>
+                    <div className='flex md:justify-center md:items-center mb-3'>
                         <a className='text-sm font-semibold mr-5' href={`blog/${featuredPost.title.split(' ').join('-')}?id=${featuredPost.id}`}>
                             {CreateFormatDate(featuredPost.creatAt)}
                         </a>
                         <a className='text-sm font-semibold uppercase' href={`/blog/${featuredPost.category}`}>{featuredPost.category}</a>
                     </div>
-                    <h3 className='text-lg text-center font-semibold mb-3'>{featuredPost.title}</h3>
+                    <a className='block' href={`blog/${featuredPost.title.split(' ').join('-')}?id=${featuredPost.id}`}>
+                        <h3 className='text-lg md:text-center font-semibold mb-3'>{featuredPost.title}</h3>
+                    </a>
+
                     <p className='mb-3 text-gray-500 text-sm overflow-hidden md:truncate w-full'>{featuredPost.body}</p>
                     <span className='relative inline-block'>
                         <a href={`blog/${featuredPost.title.split(' ').join('-')}?id=${featuredPost.id}`} className="text-sm font-semibold line-hover py-1 block before:content-[' '] before:absolute before:bg-slate-400 before:w-full before:bottom-0 before:h-[2px]">Read More</a>

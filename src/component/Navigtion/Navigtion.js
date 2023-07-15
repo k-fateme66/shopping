@@ -2,10 +2,11 @@ import React from 'react'
 import NavLinks from './NavLinks'
 function Navigtion({ styleNav, styleUl }) {
     const navLinks = [
-        { path: '/', name: 'HomePage' },
+        { path: '/', name: 'Home' },
         { path: 'shop', name: 'Shop' },
         { path: 'blog', name: 'Blog' },
-        { path: 'contactus', name: 'Contact Us' }
+        { path: 'contactus', name: 'Contact Us' },
+        { path: 'my-account', name: 'My Account' }
     ]
 
 

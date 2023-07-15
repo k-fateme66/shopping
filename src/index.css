@@ -76,6 +76,10 @@
   nav  .line-hover:after {
     bottom: -0.5rem;
   }
+
+  .line-hover:hover span{
+    background-color: theme("colors.slate.900");
+  }
   /* Custom line-hover */
 
   /* custom line-active */

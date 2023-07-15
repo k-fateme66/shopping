@@ -5,6 +5,7 @@ import { useWish } from "../../Context/WishProvider";
 import { checkInCart } from "../../utils/CheckInCart";
 import { NavLink } from "react-router-dom";
 import ProgressiveImg from "../../commen/ProgressiveImg";
+import placeholderSrc from '../../assets/img/placeholder.jpg'
 const Product = ({ product, addCart, addWish }) => {
     const { cart } = useCart();
     const { name, price, image, discount, id, offPrice } = product;
@@ -16,8 +17,8 @@ const Product = ({ product, addCart, addWish }) => {
     return (
         <NavLink to={`/product/${product.name}?id=${product.id}`} className="text-center mb-11 group ">
             <div className="relative overflow-hidden mb-5 hover:">
-                <ProgressiveImg src={image} alt={name} className="w-full object-cover h-64 object-center" />
-                <ProgressiveImg src={image} alt={name} className="group-hover:opacity-100 -scale-x-100 object-cover h-64 object-center w-full absolute top-0  left-0 opacity-0 transition-opacity duration-500 ease-linear" />
+                <ProgressiveImg src={image} alt={name} className="w-full object-cover h-64 object-center" placeholderSrc={placeholderSrc} />
+                <ProgressiveImg src={image} alt={name} className="group-hover:opacity-100 -scale-x-100 object-cover h-64 object-center w-full absolute top-0  left-0 opacity-0 transition-opacity duration-500 ease-linear" placeholderSrc={placeholderSrc} />
                 {discount !== 0 ? <span className='absolute top-8 left-0 flex align-center justify-center bg-green-400 text-white px-3  text-sm font-bold'>{discount}%</span> : ''}
                 <div className='flex items-center justify-center absolute top-full w-full'>
                     <button onClick={addCart} className="bg-stone-900 flex items-center justify-center h-12 w-12 rounded-full mr-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-16  transition-all duration-500 ease-linear">

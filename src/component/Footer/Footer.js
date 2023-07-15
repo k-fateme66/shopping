@@ -27,9 +27,9 @@ const Footer = () => {
             <div className=" border-t border-gray-100 pt-14 ">
                 <h5 className="text-xl font-semibold mb-10 text-center">Newsletter</h5>
                 <p className="text-center mb-10">Get timely updates from your favorite products</p>
-                <form className="flex flex-col md:flex-row w-full md:w-2/3 mx-auto md:items-end">
+                <form className="flex flex-col md:flex-row w-full md:w-2/3 mx-auto md:items-end relative">
                     <Input formik={formik} placeholder="Enter your email adress" name="email" style="w-full md:mr-3" />
-                    <button className="border-b-2 border-gray-300 text-lg p-3 mb-6 hover:border-gray-900 transition-all duration-300">
+                    <button className="border-b-2 border-gray-300 text-lg p-[6px] hover:border-gray-900 transition-all duration-300 absolute right-0 top-0">
                         Subscribe
                     </button>
                 </form>

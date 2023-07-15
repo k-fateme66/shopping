@@ -50,29 +50,29 @@ const MyAccount = () => {
     }, [location]);
 
     return (
-        <div className="mx-auto md:py-40" >
+        <div className="mx-auto" >
             <Tabs className="w-full " selectedTabClassName="active" selectedIndex={tabIndex} onSelect={(index) => handleChangeTab(index)}>
                 <TabList className='flex flex-wrap mb-16 bg-gray-200 lg:px-72 justify-center'>
-                    {!userDate && <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4">
-                        <h5 className='md:text-xl text-lg font-semibold'>Login</h5>
+                    {!userDate && <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4 md:mx-3">
+                        <h5 className='text-lg font-semibold'>Login</h5>
                     </Tab>}
-                    {userDate && <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4">
-                        <h5 className='md:text-xl text-lg font-semibold'>My Account</h5>
+                    {userDate && <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4 md:mx-3">
+                        <h5 className='text-lg font-semibold'>My Account</h5>
                     </Tab>}
 
-                    <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4">
-                        <h5 className='md:text-xl text-lg mr-2 font-semibold'>Shopping Cart</h5>
-                        <span className="bg-slate-900 w-5 h-5 flex justify-center items-center text-sm font-semibold rounded-full text-white">{cart.length}</span>
+                    <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4 md:mx-3">
+                        <h5 className='text-lg mr-2 font-semibold'>Shopping Cart</h5>
+                        <span className="bg-gray-400 w-5 h-5 flex justify-center items-center text-sm font-semibold rounded-full text-white transition-all duration-75">{cart.length}</span>
                     </Tab>
-                    <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4">
-                        <h5 className='md:text-xl text-lg mr-2 font-semibold'>wishlist</h5>
-                        <span className="bg-slate-900 w-5 h-5 flex justify-center items-center text-sm font-semibold rounded-full text-white">{wish.length}</span>
+                    <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4 md:mx-3">
+                        <h5 className='text-lg mr-2 font-semibold'>wishlist</h5>
+                        <span className="bg-gray-400 w-5 h-5 flex justify-center items-center text-sm font-semibold rounded-full text-white transition-all duration-75">{wish.length}</span>
                     </Tab>
-                    <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4">
-                        <h5 className='md:text-xl text-lg  font-semibold'>Checkout</h5>
+                    <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4 md:mx-3">
+                        <h5 className='text-lg  font-semibold'>Checkout</h5>
                     </Tab>
-                    {userDate && <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4">
-                        <h5 className='md:text-xl text-lg  font-semibold'>Logout</h5>
+                    {userDate && <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4 md:mx-3">
+                        <h5 className='text-lg  font-semibold'>Logout</h5>
                     </Tab>}
                 </TabList>
 
