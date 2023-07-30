@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import ProductList from '../component/ProductList/ProuductList';
 import { useProducts } from '../Context/ProductsProvider';
-import Breadcrumb from '../component/Breadcrumb/Breadcrumb';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import ErrorTemplate from '../commen/ErrorTemplate';
 import Loading from '../commen/Loading';
@@ -10,31 +9,36 @@ import HeroSection from '../component/HeroSection/HeroSection';
 function HomePage() {
     const [tabIndex, setTabIndex] = useState(0);
     const [productsTab, setProductsTab] = useState([]);
+    const [dataProducts, setDataProducts] = useState([])
     const { products } = useProducts();
+    useEffect(() => {
+        setDataProducts(products)
+    })
     const handleChangeTab = useCallback((index) => {
         let salesProducts = []
         setTabIndex(index);
         switch (index) {
             case 0:
-                salesProducts = products
+                salesProducts = dataProducts
                 break;
             case 1:
-                salesProducts = products.products.filter((p) => p.discount == 0)
+                salesProducts = dataProducts.products.filter((p) => p.discount == 0)
                 break;
             case 2:
-                salesProducts = products.products.filter((p) => p.discount !== 0)
+                salesProducts = dataProducts.products.filter((p) => p.discount !== 0)
+                console.log(salesProducts);
                 break;
             default:
-                salesProducts = products
+                salesProducts = dataProducts
         }
         setProductsTab(salesProducts)
-    }, [tabIndex, productsTab]);
+    }, [tabIndex, productsTab, dataProducts]);
     return (
         <>
             <HeroSection title='SOBER' />
             {<div className='relative container mx-auto px-4'>
                 <Tabs className="flex flex-col justify-center items-center pt-10" selectedTabClassName="active" selectedIndex={tabIndex} onSelect={(index) => handleChangeTab(index)}>
-                    <TabList className="flex justify-center items-center w-full mb-5">
+                    <TabList className="flex md:justify-center justify-between items-center w-full md:mb-5">
                         <Tab className="outline-none text-center cursor-pointer line-hover tab-nav flex items-center justify-center py-3 relative md:px-5 mx-2">
                             <h5 className='text-base  font-semibold'> All</h5>
                         </Tab>

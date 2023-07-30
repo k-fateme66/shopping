@@ -4,7 +4,7 @@ import Product from "../Prouduct/Product";
 import { toast } from 'react-toastify';
 import { useWishActions } from "../../Context/WishProvider";
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products, grid = '5' }) => {
     const dispatch = useCartActions();
     const dispatchWish = useWishActions();
     const handleAddCart = (e, product) => {
@@ -18,7 +18,7 @@ const ProductList = ({ products }) => {
     }
     return (
         <section className='py-10'>
-            <div className='px-10 mx-auto grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4'>
+            <div className={`md:px-10 px-4 mx-auto grid ${grid === '5' ? 'lg:grid-cols-5' : 'lg:grid-cols-4'} md:grid-cols-3 sm:grid-cols-2 gap-4`}>
                 {
                     products.map((product) => {
                         return <Product

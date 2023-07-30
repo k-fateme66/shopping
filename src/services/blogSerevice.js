@@ -7,3 +7,7 @@ export const getPosts = () => {
 export const getPost = (data) => {
     return http.get(`/posts/${data}`)
 }
+
+export const getCategoryPost = (data) => {
+    return http.get(`/posts?category=${data}`)
+}

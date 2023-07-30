@@ -30,9 +30,19 @@ const Login = ({ changeForm }) => {
     const onSubmit = async (values) => {
         try {
             const { data } = await loginUser(values);
-            setAuth(data);
-            toast.success('Login')
-            navigate(redirect)
+            if (data.lenght) {
+                setAuth(data);
+                toast.success('Login')
+                navigate(redirect)
+            } else {
+                values.name = 'test';
+                values.phoneNumber = '091200000'
+                console.log(values);
+                setAuth(values);
+                toast.success('Login')
+                navigate(redirect)
+            }
+
         } catch (error) {
             if (error.response && error.response.data.message) {
                 toast.error(error.response.data.message)

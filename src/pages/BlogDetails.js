@@ -24,7 +24,7 @@ const BlogDetails = () => {
                     <span className='text-sm font-semibold mr-5 text-slate-400'>
                         {CreateFormatDate(_post.creatAt)}
                     </span>
-                    <a className='text-sm font-semibold uppercase' href={`/blog/${_post.category}`}>{_post.category}</a>
+                    <a className='text-sm font-semibold uppercase' href={`/blog/category/${_post.category}`}>{_post.category}</a>
                 </div>
                 <h1 className='text-2xl text-center font-semibold mb-4'>{_post.title}</h1>
                 <div className="flex justify-center items-center my-8">

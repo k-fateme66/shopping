@@ -6,7 +6,6 @@ import { useCart, useCartActions } from "../../Context/CartProvider";
 const CartList = () => {
     const { cart, total } = useCart();
     const dispatch = useCartActions();
-    console.log(cart)
     const addCartHandler = (e, item) => {
         e.preventDefault();
         dispatch({ type: 'ADD_TO_CART', payLoad: item })

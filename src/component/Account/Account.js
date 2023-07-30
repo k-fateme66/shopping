@@ -14,7 +14,6 @@ const Account = ({ close }) => {
     }
     const handleChangeForm = (e) => {
         e.preventDefault();
-        console.log('You clicked submit.');
         setShowForm(!showForm)
     }
     return (

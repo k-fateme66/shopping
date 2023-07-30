@@ -103,8 +103,7 @@
   [type="time"],
   [type="week"],
   [multiple],
-  textarea,
-  select {
+  textarea {
     border-color: theme("colors.slate.300");
     border-width: theme("width[0.5]");
     border-top: 0;
@@ -116,6 +115,17 @@
     background: rgb(255 255 255 / 0%);
     padding-left: 0 ;
     padding-right: 0;
+  }
+
+  select {
+    border-color: theme("colors.slate.300");
+    border-width: theme("width[0.5]");
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    transition: all 0.5s ease-in-out;
+    outline: none;
+    box-shadow: none;
   }
 
   [type="text"]:focus,
@@ -141,6 +151,8 @@
     outline: none;
     box-shadow: none;
   }
+  
+  
   /* custom input-textare,select */
   /* custom label */
   input:focus ~ .label-custom,textarea:focus ~ .label-custom{
@@ -182,3 +194,5 @@
    }
    /* bredcumbs */
 }
+
+

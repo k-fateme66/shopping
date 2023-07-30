@@ -52,7 +52,7 @@ const MyAccount = () => {
     return (
         <div className="mx-auto" >
             <Tabs className="w-full " selectedTabClassName="active" selectedIndex={tabIndex} onSelect={(index) => handleChangeTab(index)}>
-                <TabList className='flex flex-wrap mb-16 bg-gray-200 lg:px-72 justify-center'>
+                <TabList className='flex flex-wrap md:mb-16 mb-8 bg-gray-200 lg:px-72 justify-center'>
                     {!userDate && <Tab className="outline-none cursor-pointer line-hover tab-nav flex items-center justify-center py-3 md:py-10 relative px-4 md:mx-3">
                         <h5 className='text-lg font-semibold'>Login</h5>
                     </Tab>}

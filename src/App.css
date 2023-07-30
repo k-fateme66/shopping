@@ -19,3 +19,28 @@
   z-index: 2;
 }
 /* header fixed */
+
+.noUi-horizontal .noUi-handle {
+  width: 15px  !important;
+  height: 15px  !important;
+  right: -13px !important;
+}
+
+.noUi-handle {
+  border: none !important;
+  border-radius: 50% !important;
+  background: #000 !important;
+  box-shadow: none !important;
+}
+
+.noUi-handle:before, .noUi-handle:after{
+  display: none !important;
+}
+
+.noUi-horizontal{
+  height: 6px !important;
+}
+
+.noUi-connect {
+  background: #000000 !important;
+}

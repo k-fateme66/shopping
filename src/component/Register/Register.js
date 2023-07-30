@@ -9,6 +9,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuthActions } from "../../Context/AuthProvider";
 
 const initialValues = {
+    "id": 1,
     email: '',
     password: '',
     name: '',
@@ -32,6 +33,7 @@ const Register = () => {
     const navigate = useNavigate();
     const setAuth = useAuthActions()
     const onSubmit = async (values) => {
+        // values.id = new Date().toISOString();
         try {
             const { data } = await signupUser(values);
             setAuth(data);

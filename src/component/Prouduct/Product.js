@@ -15,12 +15,12 @@ const Product = ({ product, addCart, addWish }) => {
 
 
     return (
-        <NavLink to={`/product/${product.name}?id=${product.id}`} className="text-center mb-11 group ">
-            <div className="relative overflow-hidden mb-5 hover:">
+        <NavLink to={`/product/${product.name}?id=${product.id}`} className="text-center mb-0 md:mb-11 group ">
+            <div className="relative overflow-hidden">
                 <ProgressiveImg src={image} alt={name} className="w-full object-cover h-64 object-center" placeholderSrc={placeholderSrc} />
                 <ProgressiveImg src={image} alt={name} className="group-hover:opacity-100 -scale-x-100 object-cover h-64 object-center w-full absolute top-0  left-0 opacity-0 transition-opacity duration-500 ease-linear" placeholderSrc={placeholderSrc} />
                 {discount !== 0 ? <span className='absolute top-8 left-0 flex align-center justify-center bg-green-400 text-white px-3  text-sm font-bold'>{discount}%</span> : ''}
-                <div className='flex items-center justify-center absolute top-full w-full'>
+                <div className='md:flex items-center justify-center absolute top-full w-full hidden'>
                     <button onClick={addCart} className="bg-stone-900 flex items-center justify-center h-12 w-12 rounded-full mr-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-16  transition-all duration-500 ease-linear">
                         {(cart.length && checkCart) ?
                             <>
@@ -38,7 +38,7 @@ const Product = ({ product, addCart, addWish }) => {
                     </button>
                 </div>
             </div>
-            <h3 className="py-2">{name}</h3>
+            <h3 className="py-2 font-semibold">{name}</h3>
             <div className="flex items-center justify-center">
                 <span className="font-bold ">
                     {discount !== 0 ? offPrice : price}

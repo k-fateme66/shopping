@@ -50,11 +50,11 @@ const Checkout = () => {
     return (
         <div className='md:w-10/12 mx-auto'>
             <form onSubmit={formik.handleSubmit}>
-                <h3 className="text-xl font-semibold mb-10">Billing Details</h3>
-                <div className="border-slate-200 border md:p-12 p-8">
+                <h3 className="text-xl font-semibold md:mb-10 mb-8">Billing Details</h3>
+                <div className="border-slate-200 border md:p-12 p-5">
                     <div className='flex md:items-center mb-10 md:flex-row flex-col item-start'>
                         <div className='md:w-1/6 w-full'>
-                            <label className=' mb-4 '>Name
+                            <label className='mb-4 font-semibold text-base'>Name
                                 <span className='pl-1 text-red-500 '>*</span>
                             </label>
                         </div>
@@ -64,7 +64,7 @@ const Checkout = () => {
                     </div>
                     <div className='flex md:items-center mb-10 md:flex-row flex-col item-start'>
                         <div className='md:w-1/6 w-full'>
-                            <label className=' mb-4'>Email
+                            <label className='mb-4 font-semibold text-base'>Email
                                 <span className='pl-1 text-red-500 '>*</span>
                             </label>
                         </div>
@@ -74,7 +74,7 @@ const Checkout = () => {
                     </div>
                     <div className='flex md:items-center mb-10 md:flex-row flex-col item-start'>
                         <div className='md:w-1/6 w-full'>
-                            <label className=' mb-4'>Tel
+                            <label className='mb-4 font-semibold text-base'>Tel
                                 <span className='pl-1 text-red-500 '>*</span>
                             </label>
                         </div>
@@ -84,7 +84,7 @@ const Checkout = () => {
                     </div>
                     <div className='flex md:items-center mb-10 md:flex-row flex-col item-start'>
                         <div className='md:w-1/6 w-full'>
-                            <label className=' mb-4'>CellPhone
+                            <label className='mb-4 font-semibold text-base'>CellPhone
                                 <span className='pl-1 text-red-500 '>*</span>
                             </label>
                         </div>
@@ -94,7 +94,7 @@ const Checkout = () => {
                     </div>
                     <div className='flex md:items-center mb-10 md:flex-row flex-col item-start'>
                         <div className='md:w-1/6 w-full'>
-                            <label className=' mb-4'>Address
+                            <label className='mb-4 font-semibold text-base'>Address
                                 <span className='pl-1 text-red-500 '>*</span>
                             </label>
                         </div>
@@ -109,7 +109,7 @@ const Checkout = () => {
                     <div className="border-slate-200 border p-12">
                         {
                             cart.map((item, index) => (
-                                <div className={`flex  border-slate-200 py-5 ${index !== 0 && 'border-t'}`} key={item._id}>
+                                <div className={`flex  border-slate-200 py-5 ${index !== 0 && 'border-t'}`} key={item.id}>
                                     <div className="flex items-center basis-1/3">
                                         <img src={item.image} className="w-20 h-20 object-cover mr-10" />
                                         <span className="text-base">{item.name}</span>

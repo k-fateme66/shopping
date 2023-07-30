@@ -4,8 +4,8 @@ const Profile = () => {
     const auth = useAuth();
     return (
         <div className='md:w-10/12 mx-auto'>
-            <h3 className="text-xl font-semibold mb-10">Profile</h3>
-            <div className="border-slate-200 border md:p-12 p-8">
+            <h3 className="text-xl font-semibold md:mb-10 mb-8">Profile</h3>
+            <div className="border-slate-200 border md:p-12 p-5">
                 <div className='flex md:items-center mb-10 md:flex-row flex-col item-start'>
                     <div className='md:w-1/6 w-full'>
                         <span className='mb-4 font-semibold text-base'>Name

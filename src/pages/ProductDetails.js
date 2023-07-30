@@ -55,8 +55,8 @@ const ProductDetails = () => {
                 </div>
                 <div className='flex md:flex-row flex-col item-start justify-between mb-5'>
                     <div className='md:w-1/2 md:order-2 order-1 md:px-7 py-6' >
-                        <h1 className='text-center text-3xl font-bold mb-8'>{product.name}</h1>
-                        <div className='flex justify-center items-end mb-8'>
+                        <h1 className='text-center text-3xl font-bold md:mb-8 mb-3'>{product.name}</h1>
+                        <div className='flex justify-center items-end md:mb-8 mb-3'>
                             {
                                 product.description && product.description.length && product.description.map((item, index, { length }) =>
                                     <div className='flex justify-start items-center' key={index}>
@@ -105,7 +105,7 @@ const ProductDetails = () => {
                                 }
                             </button>
                         </div>
-                        <div className="flex justify-center items-center border-t border-b py-10 border-b-gray-300 border-t-gray-300">
+                        <div className="flex justify-center items-center border-t border-b md:py-10 py-5 border-b-gray-300 border-t-gray-300">
                             <ul className="flex items-center leading-none">
                                 <li>
                                     <a target="_blank" href={`https://www.twitter.com/intent/tweet?url=${window.location.href}`} className="block text-sm mx-4 text-slate-500 hover:text-slate-900 ">
@@ -130,8 +130,8 @@ const ProductDetails = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className='md:w-1/2 md:px-7 py-6'>
-                        <ProgressiveImg src={product.image} alt={product.name} className='object-cover w-full h-96' />
+                    <div className='md:w-1/2 md:px-7 md:py-6'>
+                        <ProgressiveImg src={product.image} alt={product.name} className='object-cover w-full md:h-96 h-52' />
                     </div>
                 </div>
             </>
@@ -140,7 +140,7 @@ const ProductDetails = () => {
     if (product.loading) return <Loading />
     if (!product.loading && product.error) return <ErrorTemplate error={product.error} />
     return (
-        <div className='px-10'>
+        <div className='relative container mx-auto md:px-10 px-4'>
             {
                 product.data && ProductDetailsTemplate(product.data)
             }

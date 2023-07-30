@@ -8,42 +8,49 @@ import placeholderSrc from '../assets/img/placeholder.jpg'
 import HeroSection from '../component/HeroSection/HeroSection';
 import PaginatedItems from '../component/PaginatedItems/PaginatedItems';
 import { NavLink, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 
 
 
 const Blog = () => {
-    const { posts, categories } = usePosts();
+    const [blog, setBlog] = useState([])
+    const { posts, categories, postsCategory, setPathCategory } = usePosts();
     const { pathname } = useLocation();
     const titlePage = pathname.split('/').slice(-1).toString();
-    function getPosts(posts) {
-        return titlePage === 'blog' ? posts : posts.filter(p => p.category.toLowerCase() == titlePage)
-    }
+
+    useEffect(() => {
+        titlePage === 'blog' ? setBlog(posts) : setBlog(postsCategory);
+    })
+
+    useEffect(() => {
+        setPathCategory(titlePage)
+    }, [pathname])
+
     const templateBlogRender = (_posts) => {
-        const posts = getPosts(_posts)
-        const featuredPost = posts[0];
+        const featuredPost = _posts[0];
         return (
             <>
                 <div className='w-100 overflow-hidden md:text-center border-b border-slate-200 pb-8'>
-                    <a href={`blog/${featuredPost.title.split(' ').join('-')}?id=${featuredPost.id}`} className='block mb-6'>
+                    <a href={`/blog/${featuredPost.title.split(' ').join('-')}?id=${featuredPost.id}`} className='block mb-6'>
                         <ProgressiveImg src={featuredPost.image} placeholderSrc={placeholderSrc} alt={featuredPost.title} className='w-full' />
                     </a>
                     <div className='flex md:justify-center md:items-center mb-3'>
                         <a className='text-sm font-semibold mr-5' href={`blog/${featuredPost.title.split(' ').join('-')}?id=${featuredPost.id}`}>
                             {CreateFormatDate(featuredPost.creatAt)}
                         </a>
-                        <a className='text-sm font-semibold uppercase' href={`/blog/${featuredPost.category}`}>{featuredPost.category}</a>
+                        <a className='text-sm font-semibold uppercase' href={`/blog/category/${featuredPost.category}`}>{featuredPost.category}</a>
                     </div>
-                    <a className='block' href={`blog/${featuredPost.title.split(' ').join('-')}?id=${featuredPost.id}`}>
+                    <a className='block' href={`/blog/${featuredPost.title.split(' ').join('-')}?id=${featuredPost.id}`}>
                         <h3 className='text-lg md:text-center font-semibold mb-3'>{featuredPost.title}</h3>
                     </a>
 
                     <p className='mb-3 text-gray-500 text-sm overflow-hidden md:truncate w-full'>{featuredPost.body}</p>
                     <span className='relative inline-block'>
-                        <a href={`blog/${featuredPost.title.split(' ').join('-')}?id=${featuredPost.id}`} className="text-sm font-semibold line-hover py-1 block before:content-[' '] before:absolute before:bg-slate-400 before:w-full before:bottom-0 before:h-[2px]">Read More</a>
+                        <a href={`/blog/${featuredPost.title.split(' ').join('-')}?id=${featuredPost.id}`} className="text-sm font-semibold line-hover py-1 block before:content-[' '] before:absolute before:bg-slate-400 before:w-full before:bottom-0 before:h-[2px]">Read More</a>
                     </span>
                 </div>
-                <PaginatedItems itemsPerPage={3} items={posts} />
+                <PaginatedItems itemsPerPage={3} items={_posts} />
             </>
         )
     }
@@ -63,9 +70,9 @@ const Blog = () => {
                     <div className='md:col-span-2'>
                         <div className='flex flex-col justify-center overflow-hidden'>
                             {
-                                posts.loading ? <Loading /> :
-                                    !posts.loading && posts.error ? <ErrorTemplate error={posts.error} /> :
-                                        posts.data && posts.data.length && templateBlogRender(posts.data)
+                                blog.loading ? <Loading /> :
+                                    !blog.loading && blog.error ? <ErrorTemplate error={blog.error} /> :
+                                        blog.data && blog.data.length && templateBlogRender(blog.data)
                             }
                         </div>
                     </div>
@@ -85,7 +92,7 @@ const Blog = () => {
                                         posts.data && posts.data.length && posts.data.slice(0, 3).map((post) => {
                                             return (
                                                 <div key={post.id} className='w-100 overflow-hidden'>
-                                                    <a className='flex flex-row justify-between items-center gap-x-5' href={`blog/${post.title.split(' ').join('-')}?id=${post.id}`}>
+                                                    <a className='flex flex-row justify-between items-center gap-x-5' href={`/blog/${post.title.split(' ').join('-')}?id=${post.id}`}>
                                                         <div className='basis-1/3' >
                                                             <ProgressiveImg src={post.image} placeholderSrc={placeholderSrc} alt={post.title} className='w-full' />
                                                         </div>

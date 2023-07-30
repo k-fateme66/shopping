@@ -14,7 +14,7 @@ const Offcanvas = ({ children }) => {
             {!IsOpen ?
                 (
                     <button className='lg:hidden' onClick={() => setIsOpen(!IsOpen)}>
-                        <BsList />
+                        <BsList className="w-5 h-5" />
                     </button>
                 ) :
                 (
