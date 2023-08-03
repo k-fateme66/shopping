@@ -90,7 +90,7 @@ const CartTotals = ({ cart, total }) => {
                         <span className="">TOTAL</span>
                         <span>${total}</span>
                     </div>
-                    <Link to={userData ? '#checkout' : 'my-account?redirect=checkout#login'} className="mt-9 bg-slate-900 flex items-center justify-center text-white w-full mx-auto min-h-[80px]">
+                    <Link to={userData ? '#checkout' : '/my-account?redirect=checkout#login'} className="mt-9 bg-slate-900 flex items-center justify-center text-white w-full mx-auto min-h-[80px]">
                         <span className="border-r border-stone-500 px-3 ">${total}</span>
                         <span className="px-3">Checkout</span>
                     </Link>
