@@ -37,8 +37,8 @@ function HomePage() {
         <>
             <HeroSection title='SOBER' />
             {<div className='relative container mx-auto px-4'>
-                <Tabs className="flex flex-col justify-center items-center pt-10" selectedTabClassName="active" selectedIndex={tabIndex} onSelect={(index) => handleChangeTab(index)}>
-                    <TabList className="flex md:justify-center justify-between items-center w-full md:mb-5">
+                <Tabs className="flex flex-col justify-center items-center" selectedTabClassName="active" selectedIndex={tabIndex} onSelect={(index) => handleChangeTab(index)}>
+                    <TabList className="flex md:py-10 py-5 md:justify-center justify-between items-center w-full">
                         <Tab className="outline-none text-center cursor-pointer line-hover tab-nav flex items-center justify-center py-3 relative md:px-5 mx-2">
                             <h5 className='text-base  font-semibold'> All</h5>
                         </Tab>

@@ -130,7 +130,7 @@ const ProductDetails = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className='md:w-1/2 md:px-7 md:py-6'>
+                    <div className='md:w-1/2 lg:px-7 md:py-6'>
                         <ProgressiveImg src={product.image} alt={product.name} className='object-cover w-full md:h-96 h-52' />
                     </div>
                 </div>
@@ -140,7 +140,7 @@ const ProductDetails = () => {
     if (product.loading) return <Loading />
     if (!product.loading && product.error) return <ErrorTemplate error={product.error} />
     return (
-        <div className='relative container mx-auto md:px-10 px-4'>
+        <div className='relative container mx-auto lg:px-10 px-4'>
             {
                 product.data && ProductDetailsTemplate(product.data)
             }

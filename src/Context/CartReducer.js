@@ -1,6 +1,4 @@
 const addProductToCart = (state, payload) => {
-
-    console.log(state, payload.id)
     const updatedCart = [...state.cart];//1.copy from cart 
     const updatedItemIndex = updatedCart.findIndex((item) => item.id == payload.id);//2. find item in cart existence
 
@@ -20,6 +18,7 @@ const addProductToCart = (state, payload) => {
     }
 }
 const removeProductToCart = (state, payload) => {
+
     const updatedCart = [...state.cart];//1.copy from cart 
     const updatedItemIndex = updatedCart.findIndex((item) => item.id == payload.id);
     const updatedItem = { ...updatedCart[updatedItemIndex] };
