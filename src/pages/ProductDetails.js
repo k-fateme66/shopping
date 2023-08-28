@@ -21,7 +21,6 @@ const ProductDetails = () => {
     const { wish } = useWish();
     const cartDispatch = useCartActions();
     const dispatchWish = useWishActions();
-    const checkWishList = checkInCart(wish, _id);
     const setHero = useHeroActions();
 
     useEffect(() => {
@@ -105,8 +104,7 @@ const ProductDetails = () => {
                                 </button>
                             }
                             <button onClick={(e) => AddWishHandler(e, product)} type="button" className="border-slate-300 border p-5 group hover:border-slate-800 transition-all duration-300  ease-in-out">
-                                {/* <BsHeart className="w-5 h-5 text-gray-500 group-hover:text-slate-800" /> */}
-                                {(wish.length && checkWishList) ?
+                                {(wish.length && wish.find((item) => item.id === product.id)) ?
                                     <BsHeartFill className="w-5 h-5  text-gray-900 group-hover:text-slate-800" /> : <BsHeart className="w-5 h-5 text-gray-500 group-hover:text-slate-800" />
                                 }
                             </button>
