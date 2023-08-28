@@ -45,7 +45,7 @@ const Footer = () => {
                             <Link to='faq' className="text-sm mx-4 text-slate-500 hover:text-slate-900 ">FAQs</Link>
                         </li>
                         <li>
-                            <Link to='contact-us' className="text-sm mx-4 text-slate-500 hover:text-slate-900 ">Contact us</Link>
+                            <Link to='contactus' className="text-sm mx-4 text-slate-500 hover:text-slate-900 ">Contact us</Link>
                         </li>
                     </ul>
                 </div>
