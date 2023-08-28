@@ -5,15 +5,19 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import ErrorTemplate from '../commen/ErrorTemplate';
 import Loading from '../commen/Loading';
 import HeroSection from '../component/HeroSection/HeroSection';
+import { useHero, useHeroActions } from '../Context/HeroProvider';
 
 function HomePage() {
     const [tabIndex, setTabIndex] = useState(0);
     const [productsTab, setProductsTab] = useState([]);
     const [dataProducts, setDataProducts] = useState([])
     const { products } = useProducts();
+    const setHero = useHeroActions();
+
     useEffect(() => {
-        setDataProducts(products)
-    })
+        setDataProducts(products);
+        setHero(true);
+    }, [])
     const handleChangeTab = useCallback((index) => {
         let salesProducts = []
         setTabIndex(index);

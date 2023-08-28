@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BsHouseFill, BsTelephoneFill, BsFillEnvelopeFill } from "react-icons/bs";
 import HeroSection from '../component/HeroSection/HeroSection';
+import { useHeroActions } from '../Context/HeroProvider';
 
 function ContactUs() {
+    const setHero = useHeroActions();
+    useEffect(() => {
+        setHero(true);
+    }, [])
     return (
         <>
             <HeroSection title='Contact Us' />

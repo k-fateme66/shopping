@@ -63,7 +63,11 @@
     transition: all 0.5s;
   }
 
-  .line-hover:hover:after,
+  .line-hover.text-gray-500.active, .line-hover.text-gray-500:hover{
+    color: theme("colors.slate.900") !important;
+  }
+
+    .line-hover:hover:after,
   .line-hover.active:after {
     width: theme("width.full");
     right: 0;

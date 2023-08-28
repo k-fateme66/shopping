@@ -8,6 +8,7 @@ import { BsFunnel, BsGrid3X3GapFill, BsGridFill, BsX } from 'react-icons/bs';
 import { useEffect } from 'react';
 import "nouislider/distribute/nouislider.css";
 import Nouislider from 'nouislider-react';
+import { useHeroActions } from '../Context/HeroProvider';
 
 
 const Shop = () => {
@@ -18,7 +19,8 @@ const Shop = () => {
     const [pricLimitUpdate, setPricLimitUpdate] = useState({});
     const [sort, setSort] = useState('newest');
     const [category, setCategory] = useState('all');
-    const [showFilter, setShowFilter] = useState(false)
+    const [showFilter, setShowFilter] = useState(false);
+    const setHero = useHeroActions();
 
     const changeGirdProductHandler = (e, count) => {
         setGridProduct(count)
@@ -27,16 +29,20 @@ const Shop = () => {
     const changeCategoryHandler = (e) => {
         e.preventDefault();
         const filter = e.target.dataset.products.toLowerCase().trim();
-        setCategory(filter)
-        if (category === 'all') {
-            e.target.previousElementSibling.classList.remove('active')
-            e.target.classList.add('active');
-        } else {
-            e.target.nextElementSibling.classList.remove('active')
-            e.target.classList.add('active');
+        if (category !== filter) {
+            setCategory(filter)
+            if (category === 'all') {
+                e.target.previousElementSibling.classList.remove('active')
+                e.target.classList.add('active');
+            } else {
+                e.target.nextElementSibling.classList.remove('active')
+                e.target.classList.add('active');
+            }
         }
     }
-
+    useEffect(() => {
+        setHero(true);
+    }, [])
     useEffect(() => {
         let result = { ...products };
         result = sortCategory(result);
@@ -46,7 +52,6 @@ const Shop = () => {
     }, [products, category, sort, pricLimitUpdate]);
 
     const onUpdate = (render, handle, value, un, percent) => {
-        console.log(handle)
         setPricLimitUpdate({ 'limit': value, 'handle': handle });
     };
 
@@ -88,10 +93,10 @@ const Shop = () => {
         if (isObjEmpty(pricLimitUpdate)) {
             products = data.products.filter((product) => {
                 if (pricLimitUpdate.handle === 1) {
-                    return product.price == pricLimitUpdate.limit[0] || product.price == pricLimitUpdate.limit[1] || pricLimitUpdate.limit[1] > product.price
+                    return product.price === pricLimitUpdate.limit[0] || product.price === pricLimitUpdate.limit[1] || pricLimitUpdate.limit[1] > product.price
                 }
                 if (pricLimitUpdate.handle === 0) {
-                    return product.price == pricLimitUpdate.limit[0] || product.price == pricLimitUpdate.limit[1] || pricLimitUpdate.limit[0] < product.price
+                    return product.price === pricLimitUpdate.limit[0] || product.price === pricLimitUpdate.limit[1] || pricLimitUpdate.limit[0] < product.price
                 }
             })
 
@@ -110,8 +115,6 @@ const Shop = () => {
     window.addEventListener("resize", () => {
         setShowFilter(false)
     });
-
-
 
     return (
         <>
@@ -132,7 +135,7 @@ const Shop = () => {
                         <div className='flex items-center justify-start w-full lg:w-auto mb-3 lg:mb-0'>
                             <button
                                 type='button'
-                                className='font-semibold relative mr-6 capitalize text-md md:line-hover py-3 md:border-0 block border-l-4 border-transparent active'
+                                className='font-semibold relative text-gray-500 mr-6 capitalize text-md line-hover py-3 md:border-0 block border-l-4 border-transparent active'
                                 data-products='all'
                                 onClick={changeCategoryHandler}
                             >
@@ -140,7 +143,7 @@ const Shop = () => {
                             </button>
                             <button
                                 type='button'
-                                className='font-semibold relative  capitalize text-md md:line-hover py-3 md:border-0 block border-l-4 border-transparent'
+                                className='font-semibold relative text-gray-500 mr-6 capitalize text-md line-hover py-3 md:border-0 block border-l-4 border-transparent'
                                 data-products='sale'
                                 onClick={changeCategoryHandler}
                             >

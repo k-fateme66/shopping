@@ -7,15 +7,21 @@ import ErrorTemplate from "../commen/ErrorTemplate";
 import { BsArrowLeft, BsArrowRight, BsTelegram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import ProgressiveImg from "../commen/ProgressiveImg";
 import placeholderSrc from '../assets/img/placeholder.jpg'
+import { useHeroActions } from "../Context/HeroProvider";
 
 const BlogDetails = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const _id = searchParams.get('id');
     const { post, setPath, posts } = usePosts();
-    const { data } = post
+    const { data } = post;
+    const setHero = useHeroActions();
     useEffect(() => {
         setPath(_id)
     }, [_id])
+
+    useEffect(() => {
+        setHero(false);
+    }, [])
 
     const renderTemplate = (_post) => {
         return (

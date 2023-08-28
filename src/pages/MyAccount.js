@@ -9,6 +9,7 @@ import Checkout from '../component/CheckOut/Checkout';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Profile from '../component/Profile/Profile';
+import { useHeroActions } from '../Context/HeroProvider';
 
 
 
@@ -20,6 +21,7 @@ const MyAccount = () => {
     const [tabIndex, setTabIndex] = useState(0);
     const navigate = useNavigate();
     const setAuth = useAuthActions();
+    const setHero = useHeroActions();
     const tabs = {
         login: 0,
         myAccount: 0,
@@ -49,6 +51,9 @@ const MyAccount = () => {
         setTabIndex(tabActive);
     }, [location]);
 
+    useEffect(() => {
+        setHero(false);
+    }, [])
     return (
         <div className="mx-auto" >
             <Tabs className="w-full " selectedTabClassName="active" selectedIndex={tabIndex} onSelect={(index) => handleChangeTab(index)}>

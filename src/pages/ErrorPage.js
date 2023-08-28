@@ -1,6 +1,12 @@
 import { BsSearch } from "react-icons/bs";
+import { useHeroActions } from "../Context/HeroProvider";
+import { useEffect } from "react";
 
 const ErrorPage = () => {
+    const setHero = useHeroActions();
+    useEffect(() => {
+        setHero(false);
+    }, [])
     return (
         <div className="flex mt-1 py-10 h-screen justify-center items-center bg-[url('/src/assets/img/shopheading.jpg')] bg-cover bg-center bg-no-repeat">
             <div className="w-10/12 pt-10 bg-slate-50 bg-opacity-50 text-center h-full relative">

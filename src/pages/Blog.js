@@ -9,6 +9,7 @@ import HeroSection from '../component/HeroSection/HeroSection';
 import PaginatedItems from '../component/PaginatedItems/PaginatedItems';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useHeroActions } from '../Context/HeroProvider';
 
 
 
@@ -18,6 +19,7 @@ const Blog = () => {
     const { posts, categories, postsCategory, setPathCategory } = usePosts();
     const { pathname } = useLocation();
     const titlePage = pathname.split('/').slice(-1).toString();
+    const setHero = useHeroActions();
 
     useEffect(() => {
         titlePage === 'blog' ? setBlog(posts) : setBlog(postsCategory);
@@ -27,6 +29,9 @@ const Blog = () => {
         setPathCategory(titlePage)
     }, [pathname])
 
+    useEffect(() => {
+        setHero(true);
+    }, [])
     const templateBlogRender = (_posts) => {
         const featuredPost = _posts[0];
         return (
@@ -56,7 +61,7 @@ const Blog = () => {
     }
     return (
         <>
-            <HeroSection title={titlePage} >
+            <HeroSection title={titlePage} styleBreadcrumb='hero-breadcumbs' styleTitle='text-white' >
                 <div className='absolute bottom-10 left-0 right-0 hidden md:block'>
                     {
                         categories.loading ? <Loading /> :

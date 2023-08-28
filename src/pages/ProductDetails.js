@@ -10,6 +10,7 @@ import Loading from "../commen/Loading";
 import { useWish, useWishActions } from "../Context/WishProvider";
 import SwiperSliderProducts from "../component/SwiperSliderProducts/SwiperSliderProducts";
 import ProgressiveImg from "../commen/ProgressiveImg";
+import { useHeroActions } from "../Context/HeroProvider";
 
 
 const ProductDetails = () => {
@@ -21,10 +22,15 @@ const ProductDetails = () => {
     const cartDispatch = useCartActions();
     const dispatchWish = useWishActions();
     const checkWishList = checkInCart(wish, _id);
-    console.log(_id)
+    const setHero = useHeroActions();
+
     useEffect(() => {
         setPath(_id);
     }, [_id])
+
+    useEffect(() => {
+        setHero(false);
+    }, [])
     const addCartHandler = (e, item) => {
         e.preventDefault();
         cartDispatch({ type: 'ADD_TO_CART', payLoad: item })
