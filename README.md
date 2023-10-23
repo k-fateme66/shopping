@@ -1,3 +1,22 @@
+# Shopping
+
+This is link Demo [Shopping](https://task-manager-karimi.vercel.app/)
+
+This project is a Shopping that is implemented with React.
+The project features include:
+
+- Cart
+- Products
+- Registration
+
+The technology used in the project includes:
+
+- [Tailwindcss](https://tailwindcss.com/)
+- Context
+- formik
+- swiper
+- ...
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

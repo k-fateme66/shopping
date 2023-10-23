@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useCartActions } from "../../Context/CartProvider";
 import Product from "../Prouduct/Product";
 import { toast } from 'react-toastify';
