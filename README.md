@@ -2,6 +2,8 @@
 
 This is link Demo [Shopping](https://shopping-6jeiiuzf2-k-fateme66.vercel.app/)
 
+![deomo shop](src/assets/img/screen.png)
+
 This project is a Shopping that is implemented with React.
 The project features include:
 
